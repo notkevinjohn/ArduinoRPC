@@ -1,0 +1,8 @@
+device=/dev/ttyACM0
+
+cp Firmware.c Firmware/Firmware.ino
+cp Wrappers.c Firmware/Wrappers.ino 
+
+arduino-cli compile --fqbn arduino:renesas_uno:unor4wifi Firmware
+arduino-cli upload -p $device --fqbn arduino:renesas_uno:unor4wifi Firmware
+arduino-cli monitor -p $device
